@@ -4,7 +4,6 @@ env:
    PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/etc/eselect/wine/bin
 jobs:
   cmake:
-    runs-on: msvc-wine
     container:
       image: akarendra835/msvc-wine
       volumes:
