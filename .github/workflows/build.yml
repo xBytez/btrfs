@@ -1,7 +1,7 @@
 name: build
 on: [push, workflow_dispatch]
 env:
-   PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/etc/eselect/wine/bin
+   PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/etc/eselect/wine/binT
 jobs:
   cmake:
     runs-on: windows-2025
@@ -51,7 +51,7 @@ jobs:
           PKCS11CERT: ${{ secrets.PKCS11CERT }}
           PKCS11KEY: ${{ secrets.PKCS11KEY }}
         run: for i in build/{debug,release}/{amd64,x86,aarch64,arm}/{btrfs.sys,mkbtrfs.exe,shellbtrfs.dll,ubtrfs.dll}; do osslsigncode sign -pkcs11module /usr/lib64/libcrypto3PKCS.so -pkcs11cert "${PKCS11CERT}" -key "${PKCS11KEY}" -certs codesigning.crt -t http://timestamp.digicert.com -ph -in $i -out tmp && mv tmp $i; done
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ github.sha }}
           overwrite: true
