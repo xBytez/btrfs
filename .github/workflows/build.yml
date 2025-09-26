@@ -4,7 +4,7 @@ env:
    PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/etc/eselect/wine/bin
 jobs:
   cmake:
-    runs-on: windows-2019
+    runs-on: windows-2025
     container:
       image: akarendra835/msvc-wine
       volumes:
