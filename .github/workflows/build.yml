@@ -6,6 +6,7 @@ jobs:
   cmake:
     runs-on: msvc-wine
     container:
+      image: akarendra835/msvc-wine
       volumes:
         - /var/run/pcscd/pcscd.comm:/var/run/pcscd/pcscd.comm
     steps:
